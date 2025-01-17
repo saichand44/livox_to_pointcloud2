@@ -53,7 +53,6 @@ elseif($ENV{ROS_VERSION} EQUAL 2)
   ament_auto_add_library(livox_to_pointcloud2 SHARED
     src/livox_to_pointcloud2_ros2.cpp
   )
-  rclcpp_components_register_nodes(livox_to_pointcloud2 "livox_to_pointcloud2::LivoxToPointCloud2")
 
   # Node
   ament_auto_add_executable(livox_to_pointcloud2_node
@@ -66,6 +65,15 @@ elseif($ENV{ROS_VERSION} EQUAL 2)
     livox_to_pointcloud2
   )
 
+  # Install rviz2 files
+  install(DIRECTORY rviz2/
+    DESTINATION share/${PROJECT_NAME}/rviz2
+  )
+
+  # Install launch files
+  install(DIRECTORY launch/
+    DESTINATION share/${PROJECT_NAME}/launch
+  )
+
   ament_auto_package()
 endif()
-
