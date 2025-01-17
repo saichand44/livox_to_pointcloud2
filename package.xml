@@ -3,26 +3,27 @@
 <package format="3">
   <name>livox_to_pointcloud2</name>
   <version>0.0.0</version>
-  <description>The livox_to_pointcloud2 package</description>
+  <description>Converts the custom msgs from livox lidar to ROS2 PointCloud2 msgs</description>
 
-  <maintainer email="k.koide@aist.go.jp">k.koide</maintainer>
+  <maintainer email="saichan8@seas.upenn.edu">Sai Chand Gubbala</maintainer>
 
   <license>MIT</license>
 
-  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
-  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
-  <depend condition="$ROS_VERSION == 1">roscpp</depend>
-  <depend condition="$ROS_VERSION == 2">rclcpp</depend>
-  <depend condition="$ROS_VERSION == 2">rclcpp_components</depend>
-
-  <depend condition="$ROS_VERSION == 1">livox_ros_driver</depend>
-  <depend condition="$ROS_VERSION == 2">livox_ros2_driver</depend>
-  <depend condition="$ROS_VERSION == 2">livox_ros_driver2</depend>
-
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>livox_ros_driver2</depend>
   <depend>sensor_msgs</depend>
 
+  <exec_depend>ament_index_python</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
   <export>
-    <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>
+  
